@@ -86,7 +86,7 @@ export function Post({ slug }: { slug: string }) {
         <a className="mono back" href="#/blog">← All posts</a>
         <div className="empty panel">
           <p className="dot">404.</p>
-          <p className="mono dim">That post doesn’t exist (or hasn’t deployed yet).</p>
+          <p className="mono dim">That post doesn’t exist, or it hasn’t been published yet.</p>
         </div>
       </section>
     )

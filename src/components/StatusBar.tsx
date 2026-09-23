@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { SECTIONS } from '../data'
+import { SECTIONS } from '../sections'
 import type { Route } from '../router'
 import { blip } from '../sound'
 
@@ -43,7 +43,7 @@ export default function StatusBar({ route, theme, onTheme, sound, onSound }: Pro
         <span className="rec" />
         SP<span className="dim">/26</span>
       </a>
-      <nav className="nav mono" aria-label="Sections">
+      <nav className="nav mono" aria-label="Sections" style={{ '--n': SECTIONS.length } as React.CSSProperties}>
         {SECTIONS.map((s, i) => (
           <a key={s.id} href={`#${s.id}`} className={current === s.id ? 'on' : ''} onClick={() => blip(1000)}>
             <span className="num">0{i + 1}</span>

@@ -1,8 +1,8 @@
 # Shivam Panda: personal website
 
-A small personal site styled after Nothing hardware: dot-matrix type, a monochrome palette with one red accent, and a working 25×25 **Glyph Matrix**. The matrix runs a double pendulum, a precessing orbit, live U(1) lattice Metropolis, an Oxford clock and Snake.
+A small personal site styled after Nothing hardware: dot-matrix type, a monochrome palette with one red accent, and a working 25×25 **Glyph Matrix**. The matrix runs a double pendulum, a precessing orbit, live U(1) lattice Metropolis updates, an Oxford clock, and Snake.
 
-Built with Vite + TypeScript + React-style components, running on Preact (about 19 KB of gzipped JS).
+Built with Vite + TypeScript + React-style components, running on Preact (about 22 KB of gzipped JavaScript).
 
 ## Develop
 

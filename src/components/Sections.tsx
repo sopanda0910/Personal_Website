@@ -2,6 +2,7 @@ import { useState, type ReactNode } from 'react'
 import { about, archive, education, experience, profile, projects, spec, type Category } from '../data'
 import { posts } from 'virtual:posts'
 import { Empty, PostRow } from '../pages/Blog'
+import { sectionNo } from '../sections'
 import { blip } from '../sound'
 
 export function SectionHead({ n, title, note }: { n: string; title: string; note?: string }) {
@@ -18,7 +19,7 @@ export function SectionHead({ n, title, note }: { n: string; title: string; note
 export function About() {
   return (
     <section id="about" className="section">
-      <SectionHead n="01" title="About" note="Spec sheet" />
+      <SectionHead n={sectionNo('about')} title="About" note="Spec sheet" />
       <div className="about-grid">
         <div className="about-copy">
           {about.map((p) => (
@@ -43,13 +44,13 @@ export function About() {
 export function Work() {
   return (
     <section id="work" className="section">
-      <SectionHead n="02" title="Work" note="Research · Quant · Engineering" />
+      <SectionHead n={sectionNo('work')} title="Work" note="Research · Quant · Engineering" />
       {profile.resume && (
         <div className="resume-row">
           <a className="btn primary" href={profile.resume} target="_blank" rel="noreferrer">
             <span className="mono">Résumé (PDF) ↗</span>
           </a>
-          <span className="mono dim">One page · everything below, condensed</span>
+          <span className="mono dim">One-page summary</span>
         </div>
       )}
       <ol className="log">
@@ -70,7 +71,7 @@ export function Work() {
               <p className="did">{e.did}</p>
               {e.learned && (
                 <p className="learned">
-                  <span className="mono">Learned</span>
+                  <span className="mono">What I learned</span>
                   {e.learned}
                 </p>
               )}
@@ -98,7 +99,7 @@ export function Projects() {
   const shown = projects.filter((p) => filter === 'All' || p.category === filter)
   return (
     <section id="projects" className="section">
-      <SectionHead n="03" title="Projects" note={`${shown.length} loaded`} />
+      <SectionHead n={sectionNo('projects')} title="Projects" note={`${shown.length} loaded`} />
       <div className="filters mono" role="tablist" aria-label="Filter projects">
         {FILTERS.map((f) => (
           <button
@@ -133,7 +134,7 @@ export function Projects() {
                     <li key={t}>{t}</li>
                   ))}
                 </ul>
-                <span className="mono go">{p.repo ? 'REPO ↗' : 'OFFLINE'}</span>
+                <span className="mono go">{p.repo ? 'REPO ↗' : 'TEAM PROJECT'}</span>
               </div>
             </>
           )
@@ -151,7 +152,7 @@ export function Projects() {
       <div className="archive">
         <div className="mono archive-head">
           <span>Archive</span>
-          <span className="dim">Notes, practice and early work</span>
+          <span className="dim">Notes, practice, and early work</span>
         </div>
         <ul>
           {archive.map((a) => (
@@ -172,7 +173,7 @@ export function Projects() {
 export function Education() {
   return (
     <section id="education" className="section">
-      <SectionHead n="04" title="Education" />
+      <SectionHead n={sectionNo('education')} title="Education" />
       <div className="edu">
         {education.map((e) => (
           <article key={e.school} className="panel edu-item">
@@ -195,7 +196,7 @@ export function Writing() {
   const latest = posts.slice(0, 3)
   return (
     <section id="writing" className="section">
-      <SectionHead n="05" title="Blog" note="Latest entries" />
+      <SectionHead n={sectionNo('writing')} title="Blog" note="Latest entries" />
       {latest.length ? (
         <ul className="post-list">
           {latest.map((p) => (
@@ -226,9 +227,9 @@ export function Contact() {
   }
   return (
     <section id="contact" className="section contact">
-      <SectionHead n="06" title="Contact" />
+      <SectionHead n={sectionNo('contact')} title="Contact" />
       <p className="dot huge">Say hello.</p>
-      <p className="contact-sub">Research, internships, race cars or physics questions: my inbox is open.</p>
+      <p className="contact-sub">Research, internships, race cars, or physics questions: my inbox is open.</p>
       <div className="contact-row">
         <button className="btn primary" onClick={copy}>
           <span className="mono">{copied ? 'COPIED ✓' : profile.email}</span>

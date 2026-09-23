@@ -4,7 +4,8 @@ import StatusBar from './components/StatusBar'
 import { About, Contact, Education, Projects, Work, Writing } from './components/Sections'
 import Boot from './components/Boot'
 import { BlogIndex, Post } from './pages/Blog'
-import { focus, profile, SECTIONS } from './data'
+import { focus, profile } from './data'
+import { hasBlog, SECTIONS } from './sections'
 import { useRoute } from './router'
 import { blip, setSound } from './sound'
 
@@ -71,7 +72,7 @@ function Home({ theme }: { theme: string }) {
       <Work />
       <Projects />
       <Education />
-      <Writing />
+      {hasBlog && <Writing />}
       <Contact />
     </>
   )
@@ -100,7 +101,7 @@ export default function App() {
     if (route.anchor) document.getElementById(route.anchor)?.scrollIntoView({ behavior })
   }, [route])
 
-  // 1–6 jump between sections, like hardware shortcut keys.
+  // Number keys jump between sections, like hardware shortcut keys.
   useEffect(() => {
     let typed = ''
     const onKey = (e: KeyboardEvent) => {
@@ -153,8 +154,8 @@ export default function App() {
       </main>
       <footer className="footer mono">
         <span>© {new Date().getFullYear()} {profile.name}</span>
-        <span className="dim">Press 1–6 to jump · ◀ ▶ on the matrix · Snake is toy 05</span>
-        <span className="dim">React + Vite · no trackers</span>
+        <span className="dim">Press 1–{SECTIONS.length} to jump between sections · ◀ ▶ changes the matrix toy · Toy 05 is Snake</span>
+        <span className="dim">Built with Preact + Vite · No trackers</span>
       </footer>
     </>
   )

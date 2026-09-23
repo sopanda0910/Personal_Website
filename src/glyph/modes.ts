@@ -89,7 +89,7 @@ function pendulum(): Mode {
   return {
     id: 'pendulum',
     label: 'DOUBLE PENDULUM',
-    hint: 'Chaos from two rods. RK4 on the Euler–Lagrange equations.',
+    hint: 'Two linked rods, fully chaotic, solved with RK4.',
     reset() {
       s = [2 + Math.random(), 2.4 + Math.random(), 0, 0]
       trail.fill(0)
@@ -175,7 +175,7 @@ function lattice(): Mode {
   return {
     id: 'lattice',
     label: 'U(1) LATTICE β=1.6',
-    hint: 'Live Metropolis on compact U(1). Brightness is 1 − cos of each plaquette.',
+    hint: 'Live Metropolis updates on compact U(1). Brighter dots are more disordered plaquettes.',
     reset() {
       for (const l of links) for (let i = 0; i < l.length; i++) l[i] = (Math.random() - 0.5) * 2 * Math.PI
       shown.fill(0)
@@ -203,7 +203,7 @@ function clock(): Mode {
   return {
     id: 'clock',
     label: 'OXFORD TIME',
-    hint: 'Europe/London. Where I probably am.',
+    hint: 'The current time in Oxford, where I probably am.',
     reset() {},
     step(dt, out) {
       t += dt
@@ -246,7 +246,7 @@ function snake(): Mode {
   return {
     id: 'snake',
     label: 'SNAKE',
-    hint: 'Arrow keys / WASD / swipe. Stay inside the circle.',
+    hint: 'Use the arrow keys, WASD, or swipe. Stay inside the circle.',
     reset() {
       body = [[12, 12], [11, 12], [10, 12]]
       dir = [1, 0]
