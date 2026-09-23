@@ -9,8 +9,8 @@ export const profile = {
   email: 'ompanda0910@gmail.com',
   github: 'https://github.com/sopanda0910',
   linkedin: 'https://www.linkedin.com/in/shivam-panda-072971321/',
-  // Drop a PDF into /public (e.g. public/resume.pdf) and set this to 'resume.pdf' to show a résumé button.
-  resume: null as string | null,
+  // PDF in /public. Set to null to hide the résumé buttons.
+  resume: 'Shivam-Panda-Resume.pdf' as string | null,
   lede:
     'MPhys physics student at Oxford. I work on machine learning for lattice gauge theory, help find the light from neutron-star mergers, and do quantitative research. Sometimes I design suspension for a race car.',
 }

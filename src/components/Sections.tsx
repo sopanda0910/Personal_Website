@@ -44,6 +44,14 @@ export function Work() {
   return (
     <section id="work" className="section">
       <SectionHead n="02" title="Work" note="Research · Quant · Engineering" />
+      {profile.resume && (
+        <div className="resume-row">
+          <a className="btn primary" href={profile.resume} target="_blank" rel="noreferrer">
+            <span className="mono">Résumé (PDF) ↗</span>
+          </a>
+          <span className="mono dim">One page · everything below, condensed</span>
+        </div>
+      )}
       <ol className="log">
         {experience.map((e, i) => (
           <li key={e.org} className="log-item panel">
